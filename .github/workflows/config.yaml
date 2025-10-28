@@ -9,16 +9,11 @@ on:
 jobs:
   run-tests:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        shard: [1, 2]
     steps:
       - uses: actions/checkout@v4
       - uses: ORDINO-AI-LLC/github-action@13
         with:
           test-framework: 'playwright'
-          total-shards: '2'
-          shard-index: '${{ matrix.shard }}'
           skip-upload: 'true'
       
       - uses: actions/upload-artifact@v4
